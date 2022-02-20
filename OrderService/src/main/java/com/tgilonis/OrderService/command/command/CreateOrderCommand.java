@@ -1,7 +1,8 @@
 package com.tgilonis.OrderService.command.command;
 
-public class CreateOrderCommand extends BaseCommand<String>
+public class CreateOrderCommand
 {
+    private final String orderId;
     private final String productId;
     private final String userId;
     private final String addressId;
@@ -10,13 +11,17 @@ public class CreateOrderCommand extends BaseCommand<String>
 
     public CreateOrderCommand(CreateOrderCommandBuilder createOrderCommandBuilder)
     {
-        super(createOrderCommandBuilder.id);
+        this.orderId = createOrderCommandBuilder.orderId;
         this.productId = createOrderCommandBuilder.productId;
         this.userId = createOrderCommandBuilder.userId;
         this.addressId = createOrderCommandBuilder.addressId;
         this.quantity = createOrderCommandBuilder.quantity;
         this.orderStatus = createOrderCommandBuilder.orderStatus;
+    }
 
+    public String getOrderId()
+    {
+        return orderId;
     }
 
     public String getProductId()
@@ -46,16 +51,16 @@ public class CreateOrderCommand extends BaseCommand<String>
 
     public static class CreateOrderCommandBuilder
     {
-        private final String id;
+        private final String orderId;
         private String productId;
         private String userId;
         private String addressId;
         private Integer quantity;
         private String orderStatus;
 
-        public CreateOrderCommandBuilder(String id)
+        public CreateOrderCommandBuilder(String orderId)
         {
-            this.id = id;
+            this.orderId = orderId;
         }
 
         public CreateOrderCommandBuilder productId(String productId)

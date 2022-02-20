@@ -27,7 +27,7 @@ public class OrderAggregate
     public OrderAggregate(CreateOrderCommand createOrderCommand)
     {
         AggregateLifecycle.apply(new OrderCreatedEvent.OrderCreatedEventBuilder(
-                createOrderCommand.getId())
+                createOrderCommand.getOrderId())
                     .productId(createOrderCommand.getProductId())
                     .addressId(createOrderCommand.getAddressId())
                     .orderStatus(createOrderCommand.getOrderStatus())
