@@ -3,11 +3,13 @@ package com.tgilonis.OrderService.command.event;
 public class OrderCreatedEvent extends BaseEvent<String>
 {
     private String id;
-    private String productId;
-    private String userId;
-    private String addressId;
-    private Integer quantity;
-    private String orderStatus;
+    private final String productId;
+    private final String userId;
+    private final String addressId;
+    private final Integer quantity;
+    private final String orderStatus;
+
+
 
     public OrderCreatedEvent(OrderCreatedEventBuilder orderCreatedEventBuilder)
     {

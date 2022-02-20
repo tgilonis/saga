@@ -28,8 +28,12 @@ public class OrderAggregate
     {
         AggregateLifecycle.apply(new OrderCreatedEvent.OrderCreatedEventBuilder(
                 createOrderCommand.getId())
-                .productId(createOrderCommand.getProductId())
-                .build()
+                    .productId(createOrderCommand.getProductId())
+                    .addressId(createOrderCommand.getAddressId())
+                    .orderStatus(createOrderCommand.getOrderStatus())
+                    .userId(createOrderCommand.getUserId())
+                    .quantity(createOrderCommand.getQuantity())
+                    .build()
         );
     }
 
@@ -41,6 +45,6 @@ public class OrderAggregate
         this.addressId = orderCreatedEvent.getAddressId();
         this.userId = orderCreatedEvent.getUserId();
         this.quantity = orderCreatedEvent.getQuantity();
-        this.orderStatus =  "CREATED";
+        this.orderStatus =  orderCreatedEvent.getOrderStatus();
     }
 }

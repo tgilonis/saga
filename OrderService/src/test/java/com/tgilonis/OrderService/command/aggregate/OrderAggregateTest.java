@@ -23,12 +23,14 @@ class OrderAggregateTest
         fixture.givenNoPriorActivity()
                 .when(new CreateOrderCommand.CreateOrderCommandBuilder("id")
                         .productId("chair")
+                        .orderStatus("CREATED")
                         .build()
                 )
                 .expectSuccessfulHandlerExecution()
                 .expectEvents(
                         new OrderCreatedEvent.OrderCreatedEventBuilder("id")
                                 .productId("chair")
+                                .orderStatus("CREATED")
                                 .build()
                 );
     }

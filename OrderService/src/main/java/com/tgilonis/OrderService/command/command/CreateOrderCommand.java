@@ -64,7 +64,7 @@ public class CreateOrderCommand extends BaseCommand<String>
             return this;
         }
 
-        public CreateOrderCommandBuilder orderStats(String orderStatus)
+        public CreateOrderCommandBuilder orderStatus(String orderStatus)
         {
             this.orderStatus = orderStatus;
             return this;
